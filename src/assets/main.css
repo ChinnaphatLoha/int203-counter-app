@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
+}
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 hover:opacity-90 text-white font-bold py-2 px-4 rounded;
+  }
+  .heading {
+    @apply text-green-600 tracking-widest hover:text-emerald-500;
+  }
+}
+
+@layer utilities {
+  .dark {
+    @apply text-white;
+  }
+}
