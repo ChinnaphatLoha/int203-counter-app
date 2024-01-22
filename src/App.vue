@@ -22,13 +22,13 @@ watch(count, (newCount, oldCount) => {
 <template>
   <div
     :class="isDark ? 'bg-black' : 'bg-white'"
-    class="flex flex-col justify-center items-center gap-16 h-screen"
+    class="flex flex-col justify-center items-center gap-16 h-screen w-screen"
   >
     <!-- Absolute position components -->
-    <div class="absolute top-0 left-0 mt-12 ml-12 cursor-help">
+    <div class="absolute top-0 flex justify-center items-center w-full h-16 sm:block sm:left-0 sm:mt-12 sm:ml-12 cursor-help">
       <h2
         v-if="isDark"
-        class="text-2xl"
+        class="text-lg sm:text-2xl"
       >
         ในนี้มืดจังเลยนะฮะ
       </h2>
@@ -39,7 +39,7 @@ watch(count, (newCount, oldCount) => {
         🏓
       </h2>
     </div>
-    <div class="absolute top-0 right-0 mt-12 mr-12 flex flex-col gap-10">
+    <div class="absolute top-0 mt-20 sm:right-0 sm:mt-12 sm:mr-12 flex items-center sm:items-end w-full flex-col gap-10">
       <!-- Toggle themes -->
       <div class="flex gap-5 items-center">
         <input
@@ -54,7 +54,7 @@ watch(count, (newCount, oldCount) => {
         <ul>
           <li
             v-for="collaborator in collaborators"
-            class="text-lg tracking-widest mb-2"
+            class="text-lg text-center sm:text-left tracking-widest mb-2"
           >
             {{ collaborator.name }}
           </li>
@@ -63,11 +63,11 @@ watch(count, (newCount, oldCount) => {
     </div>
 
     <!-- Counter -->
-    <div class="flex justify-between items-center w-1/4">
+    <div class="flex justify-between items-center w-full px-14 sm:w-1/2">
       <button
         @click="count > 0 ? --count : 0"
         :class="isDark ? 'btn-outline' : ''"
-        class="btn btn-error text-3xl"
+        class="btn btn-error text-2xl sm:text-3xl"
       >
         -
       </button>
@@ -79,7 +79,7 @@ watch(count, (newCount, oldCount) => {
       <button
         @click="count < 9999 ? ++count : 9999"
         :class="isDark ? 'btn-outline' : ''"
-        class="btn btn-success text-3xl"
+        class="btn btn-success text-2xl sm:text-3xl"
       >
         +
       </button>
