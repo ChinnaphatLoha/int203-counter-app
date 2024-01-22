@@ -93,7 +93,7 @@ plugins: [require("daisyui")],
 
 Component คือ 1 ใน core concept ของ vue
 
-> เป็นการแบ่งส่วนเว็บออกเป็นชิ้นเล็กๆที่รวม html, css และ javascript เอาไว้ในก้อนเดียวกัน นั่นคือ
+> เป็นการแบ่งส่วนเว็บออกเป็นชิ้นเล็ก ๆ ที่รวม html, css และ javascript เอาไว้ในก้อนเดียวกัน นั่นคือ
 
 - template (html)
 - script (javascript logic)
@@ -128,7 +128,7 @@ createApp(App).mount("#app");
 
 - `createApp` คือจุดเริ่มต้นในการสร้าง vue application
 - component ที่ใส่ไปใน `createApp = Root component`
-- application จะไม่สามารถเกิดขึ้นได้หากไม่เกิดการ mount เข้า HTML DOM จริงๆ = ซึ่งนั่นก็คือ `<div id="app"></div>`
+- application จะไม่สามารถเกิดขึ้นได้หากไม่เกิดการ mount เข้า HTML DOM จริง ๆ = ซึ่งนั่นก็คือ `<div id="app"></div>`
 - `.mount("#app")` คือการนำ javascript (ที่เขียนด้วย Vue component) ใส่กลับเข้าไปใน DOM html เพื่อให้สามารถ render จุดเริ่มต้นของ application ได้
 
 ### พื้นฐานของ Component ประกอบด้วย
