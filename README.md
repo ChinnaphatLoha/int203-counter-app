@@ -133,7 +133,7 @@ createApp(App).mount("#app");
 
 ### พื้นฐานของ Component ประกอบด้วย
 
-### 1) Template Syntax
+## 1) Template Syntax
 
 Component ประกอบด้วย 3 ส่วน
 
@@ -190,9 +190,11 @@ const message = "Hello world";
 <div :id="`list-${id}`"></div>
 ```
 
-- ### More of Built-in Directives
+---
 
-#### 1. `v-show` [Conditional Rendering]
+## More of Built-in Directives
+
+### 1. `v-show` [Conditional Rendering]
 
 ทำให้ element นั้น `ถูกแสดง` โดยดูจากค่าที่รับเข้ามาว่าเป็น true `(truthy value)` หรือไม่ ถ้าค่าที่ได้รับเป็น false `(falsy value)` จะทำให้ element นั้นถูกกำหนด style เป็น `display: none;` (ยังคงถูก render ใน DOM)
 
@@ -207,7 +209,7 @@ const isHidden = true;
 </template>
 ```
 
-#### 2. `v-if`, `v-if-else`, `v-else` [Conditional Rendering]
+### 2. `v-if`, `v-if-else`, `v-else` [Conditional Rendering]
 
 สำหรับ v-if จะทำงานคล้ายกับ v-show โดยใช้เงื่อนไขการแสดงผลจาก truthy value แต่ถ้าหากเป็น falsy value จะทำให้ element นั้น `ไม่ถูก render ใน DOM`
 
@@ -236,7 +238,7 @@ v-else `ไม่จำเป็นต้องรับค่าใด ๆ` แ
 </template>
 ```
 
-#### 3. `v-for` [List Rendering]
+### 3. `v-for` [List Rendering]
 
 ใช้ในการ loop element (render ซํ้า) สามารถรับข้อมูลเป็น Data type ได้ตามนี้
 
@@ -285,7 +287,7 @@ v-else `ไม่จำเป็นต้องรับค่าใด ๆ` แ
 </template>
 ```
 
-#### 3.1 `v-for` with `v-if`
+### 3.1 `v-for` with `v-if`
 
 > **! ไม่ควรใช้ 2 ตัวนี้บน element เดียวกัน** ในกรณีที่ใช้ alias (ตัวที่ถูกประกาศใน v-for) ใน v-if เพราะ `v-if จะถูกอ่านก่อนเสมอ` (higher priority)
 
@@ -296,7 +298,7 @@ v-else `ไม่จำเป็นต้องรับค่าใด ๆ` แ
 </li>
 ```
 
-#### 4. `v-on` [Event Handling]
+### 4. `v-on` [Event Handling]
 
 **วิธีการเทียบ Event ใน Javascript ปกติกับ Vue Event**
 
@@ -326,7 +328,7 @@ Binding event มีทั้งหมด 2 ประเภทคือ
 </template>
 ```
 
-#### 5. `v-model` [Form Input Bindings]
+### 5. `v-model` [Form Input Bindings]
 
 ใช้ในการผูกค่า (value) ของ `input`, `select`, `textarea` ไว้กับตัวแปร หมายความว่า **ถ้าค่าใน form เปลี่ยน ค่าของตัวแปรที่ถูกผูกไว้ก็จะเปลี่ยนตาม**
 
@@ -376,15 +378,15 @@ Modifier ใช้เพื่อระบุว่า directive (v-on และ
 
 ---
 
-### 2) Reactivity Fundamentals
+## 2) Reactivity Fundamentals
 
-#### ทำความรู้จักกับ `Reactive`
+### ทำความรู้จักกับ `Reactive`
 
 > Reactive คือคุณสมบัติที่มี **การตรวจสอบการเปลี่ยนแปลง (change) ของ state** และสามารถ **update DOM ได้อัตโนมัติ เมื่อมี change** โดยที่ไม่ต้องใช้คำสั่งอย่าง .innerHTML หรือคอย update ตัวแปรกลับ
 
 สรุปโดยย่อคือ `ความสามารถในการจัดการกับ view ใน DOM ได้อย่างอัตโนมัติ`
 
-#### 1. รู้จักกับ `Ref`
+### 1. รู้จักกับ `Ref`
 
 - `ref()` คือคำสั่งที่เปลี่ยนตัวแปรที่รับให้กลายเป็น **ตัวแปรแบบ reactive**
 - **argument** ที่ใส่ใน `ref()` คือค่าเริ่มต้นของตัวแปร และ `.value` คือ **วิธีดึงค่าและ update** กลับไปผ่านตัวแปร reactive ได้
@@ -406,7 +408,7 @@ Modifier ใช้เพื่อระบุว่า directive (v-on และ
 
 **จะสังเกตเห็นว่า `{{ count }}` ที่อยู่ใน DOM มีการเปลี่ยนแปลงแล้ว**
 
-#### 2. รู้จักกับ `Reactive`
+### 2. รู้จักกับ `Reactive`
 
 ใช้กับเคสที่เป็น object สามารถแปลง object ออกมาได้เลย ถ้าใช้ `ref()` **มันจะต้อง .value เสมอ** แต่ถ้าใช้ `reactive()` **จะดึง object ออกมาได้เลย**
 
@@ -425,7 +427,7 @@ Modifier ใช้เพื่อระบุว่า directive (v-on และ
 </template>
 ```
 
-#### 3. มาลองใช้ `Reactive กับ v-model`
+### 3. มาลองใช้ `Reactive กับ v-model`
 
 การทำ Form Input Binding เพื่อให้สิ่งที่แสดงผลใน UI **เปลี่ยนแปลงไปตามตัวแปรที่เกี่ยวข้องหรือถูกผูกอยู่กับ v-model ภายใน form** นั่นเอง (เรียกสิ่งนี้ว่า Reactivity)
 
@@ -445,9 +447,9 @@ Modifier ใช้เพื่อระบุว่า directive (v-on และ
 
 ---
 
-### 3) Computed Properties
+## 3) Computed Properties
 
-#### ทำความรู้จักกับ `computed properties`
+### ทำความรู้จักกับ `computed properties`
 
 > computed properties คือ **การใส่ logic** บางอย่างเพื่อไป **ทำงานกับตัวแปร reactive** แล้ว **return ผลลัพธ์กลับไป**
 
@@ -483,13 +485,13 @@ Modifier ใช้เพื่อระบุว่า directive (v-on และ
 
 ---
 
-### 4) Watchers (watch, watchEffect)
+## 4) Watchers (watch, watchEffect)
 
-#### ทำความรู้จักกับ `wathcher`
+### ทำความรู้จักกับ `wathcher`
 
 > สิ่งที่ computed ทำได้ watcher ก็สามารถทำได้เกือบทั้งหมด แต่ถ้าเราจะจัดการ state schanges อย่างอื่นเพิ่มเติม เช่น การจัดการส่วนต่าง ๆ ใน DOM, การส่งค่าผ่าน API เป็นต้น
 
-#### 1. รู้จักกับ `watch`
+### 1. รู้จักกับ `watch`
 
 argument ตัวแรก ของ watch() **ต้องมาจาก reactive** คือ
 `ref()`, `reactive()`, `computed()`, `getter function [() => reactive value]`, `array ของ reactive`
@@ -533,9 +535,9 @@ argument ตัวแรก ของ watch() **ต้องมาจาก reac
 - ถ้าเป็น `computed()` เราจะใช้ตัวแปร computed ในการจัดการเลย
 - แต่ถ้าเป็น `watch()` เราแค่ดักจับการเปลี่ยนแปลง (change) ของตัวแปรนั้น เพื่อไปทำสิ่งอื่นแทน
 
-#### 1.1 เมื่อใช้ getter function กับ reactive() ให้ใส่ `{ deep: true }` ใน argument ท้ายสุด
+### 1.1 เมื่อใช้ getter function กับ reactive() ให้ใส่ `{ deep: true }` ใน argument ท้ายสุด
 
-#### 1.2 ถ้าหากอยากให้ callback ใน watch ทำงานก่อนที่จะเกิด change ในครั้งแรก ให้เพิ่ม property `immediate: true` ใน argument ตัวสุดท้าย
+### 1.2 ถ้าหากอยากให้ callback ใน watch ทำงานก่อนที่จะเกิด change ในครั้งแรก ให้เพิ่ม property `immediate: true` ใน argument ตัวสุดท้าย
 
 ```js
 const user = reactive({id: 0, name: ""});
@@ -549,7 +551,7 @@ watch(
 );
 ```
 
-#### 2. รู้จักกับ `watchEffect`
+### 2. รู้จักกับ `watchEffect`
 
 `watchEffect()` ไม่จำเป็นต้องใส่ reactive source เข้าไปเป็น argument **สามารถใส่ callback function ได้เลย** เพราะ watchEffect จะดักจับการเปลี่ยนแปลง (change) ของ **reactive variable ทุกตัวใน fucntion และจะทำงานทันทีในครั้งแรก** (คุณสมบัติเดียวกับ `{ immediate: true }` ใน watch)
 
@@ -583,4 +585,7 @@ watchEffect(() => {
 ## More recommended resorces
 
 - ### For techniques: https://www.youtube.com/@LearnVue
+
 - ### For first-intermediate project: https://youtube.com/playlist?list=PLwZ0y9k-cYXCoEjmL9kpPplNrZVk-fp1z&si=wFiLGI8NiMIqjG-I
+
+- ### For exploring the courses: https://vueschool.io
