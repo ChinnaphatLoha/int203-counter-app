@@ -1,5 +1,9 @@
 <script setup>
-import { ref, computed, reactive, watch } from "vue";
+// Route to test view
+import { RouterView } from "vue-router";
+const useCounter = ref(true);
+
+import { ref, computed, reactive, watch, watchEffect } from "vue";
 const count = ref(0);
 const isDark = ref(true);
 const status = computed(() => (isDark.value ? "Dark Mode" : "Light Mode"));
@@ -17,10 +21,16 @@ watch(count, (newCount, oldCount) => {
     count.value = newCount > 9999 ? oldCount : newCount < 0 ? 0 : newCount;
   }
 });
+
+watchEffect(() => {
+  if(count.value === 203) {
+    useCounter.value = false;
+  }
+})
 </script>
 
 <template>
-  <div
+  <div v-if="useCounter"
     :class="isDark ? 'bg-black' : 'bg-white'"
     class="flex flex-col justify-center items-center gap-16 h-screen w-screen"
   >
@@ -85,4 +95,5 @@ watch(count, (newCount, oldCount) => {
       </button>
     </div>
   </div>
+  <RouterView v-else />
 </template>

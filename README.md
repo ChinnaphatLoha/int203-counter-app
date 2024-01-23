@@ -571,6 +571,7 @@ watchEffect(() => {
 - ### เป็นแค่ mini project สามารถใช้เพื่อเป็นแบบเริ่มต้นในการเรียน Basic Vue ได้
 
 - ### ปล. ลอง follow document แล้วก็ดูผลลัพธ์ตามไปด้วยนะ
+- ### ใช้ TestView.vue เพื่อลอง follow ตาม document `โดยใส่ค่าใน counter เป็น 203`
 
 ---
 
