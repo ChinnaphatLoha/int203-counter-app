@@ -83,8 +83,8 @@ watchEffect(() => {
       </button>
       <input
         v-model="count"
-        :class="isDark ? 'text-white' : 'text-black'"
-        class="text-5xl bg-transparent text-center w-1/2 focus:outline-none"
+        :class="isDark ? 'text-white bg-slate-600' : 'text-black bg-slate-300'"
+        class="text-5xl text-center w-1/2 focus:outline-none"
       />
       <button
         @click="count < 9999 ? ++count : 9999"
